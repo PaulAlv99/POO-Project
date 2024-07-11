@@ -2,7 +2,7 @@ package Projeto;
 
 import java.util.*;
 
-public class Equipa{
+public class Equipa {
     private int id;
     private String nome;
     private Treinador treinador;
@@ -13,13 +13,14 @@ public class Equipa{
     private int vitorias;
     private int derrotas;
     private int empates;
-    private int posicao=1;
-    private static int count=0;
-    private static int countJogadoresID=1;
-    private static final int numerojogadoresmax=11;
+    private int posicao = 1;
+    private static int count = 0;
+    private static int countJogadoresID = 1;
+    private static final int numerojogadoresmax = 11;
     List<Jogador> jogadores = new ArrayList<>();
     Random rand = new Random();
-    public void resetar(){
+
+    public void resetar() {
         this.pontos = 0;
         this.golosmarcados = 0;
         this.golosofridos = 0;
@@ -28,29 +29,27 @@ public class Equipa{
         this.empates = 0;
         this.posicao = 1;
     }
-    public String gerarNomeALeatorio(){
+
+    public String gerarNomeAleatorio() {
         int n = rand.nextInt(5);
-        String[] nomes = {"A","B","C","D","E"};
+        String[] nomes = {"Benfica", "Porto", "Sporting", "Braga", "Estoril"};
         return nomes[n];
     }
 
     public Equipa() {
-        this.nome = gerarNomeALeatorio();
-//        this.pontos = rand.nextInt(80);
-//        this.golosmarcados=rand.nextInt(30);
-//        this.golosofridos=rand.nextInt(20);
+        this.nome = gerarNomeAleatorio();
     }
 
-    public void adicionarJogador(Jogador jogador){
-        if(jogadores.size()<=numerojogadoresmax){
+    public void adicionarJogador(Jogador jogador) {
+        if (jogadores.size() < numerojogadoresmax) {
             jogador.setId(++countJogadoresID);
             jogadores.add(jogador);
-        }
-        else{
+        } else {
             System.out.println("Maximo de jogadores na equipa");
         }
     }
-    public void removerJogador(Jogador jogador){
+
+    public void removerJogador(Jogador jogador) {
         jogadores.remove(jogador);
     }
 
@@ -80,7 +79,7 @@ public class Equipa{
 
     @Override
     public String toString() {
-        return "ID: " + this.getID()+" | " + this.getPosicao() + " - " + "Equipa: " + this.getNome() + " | Pontos: " + getPontos() +  " | Vitorias: " + getVitorias() + " | Empates: " + getEmpates() + " | Derrotas: " + getDerrotas() + " | Golos marcados: " + getGolosmarcados() + " | Golos sofridos: " + getGolosofridos() +" | Treinador: " + getTreinador() +"\n";
+        return "ID: " + this.getID() + " | " + this.getPosicao() + " - " + "Equipa: " + this.getNome() + " | Pontos: " + getPontos() + " | Vitorias: " + getVitorias() + " | Empates: " + getEmpates() + " | Derrotas: " + getDerrotas() + " | Golos marcados: " + getGolosmarcados() + " | Golos sofridos: " + getGolosofridos() + " | Treinador: " + getTreinador() + "\n";
     }
 
     public int getVitorias() {
@@ -157,14 +156,12 @@ public class Equipa{
     }
 
     public void setTreinador(Treinador treinador) {
-        if(this.getTreinador()!=null){
+        if (this.getTreinador() != null) {
             System.out.print("Ja existe treinador");
-        }
-        else{
+        } else {
             treinador.setId(++count);
             this.treinador = treinador;
         }
-
     }
 
     public List<Jogador> getJogadores() {

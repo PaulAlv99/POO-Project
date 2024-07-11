@@ -1,41 +1,34 @@
 package Projeto;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Menus {
     Scanner scanner = new Scanner(System.in);
-    public Menus(){
 
-    }
-    public void mostrarMenu(){
+    public Menus() { }
+
+    public void mostrarMenu() {
         System.out.println("1-Criar Liga aleatoria,equipas aleatorias e jogadores e treinador aleatorio\n2-Sair");
-        String opcao =scanner.next();
+        String opcao = scanner.next();
         scanner.nextLine();
-        switch (opcao){
+        switch (opcao) {
             case "1":
-                Simulacao simulacao =new Simulacao();
+                Simulacao simulacao = new Simulacao();
                 Liga liga = simulacao.criarLigaEPopular();
                 System.out.println(liga);
-                System.out.println("\n1-Simular jogo\n2-Sair");
-                String opcao2 =scanner.next();
+                System.out.println("\n1-Simular Jornada\n2-Sair");
+                String opcao2 = scanner.next();
                 scanner.nextLine();
-                switch(opcao2){
+                switch (opcao2) {
                     case "1":
-                        //TODO SIMULAR JOGAR
                         simulacao.simularJornadas(liga);
                         break;
                     case "2":
                         break;
                 }
+                break;
             case "2":
                 break;
         }
-
     }
-    public void menuSimular(){
-
-    }
-
-
-
 }
